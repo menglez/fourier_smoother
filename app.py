@@ -12,7 +12,8 @@ df = download_stock.download(stock)
 
 
 #Apply custom Kalman filter
-#kf_ts    = kalman_func.kalman_filter( df[stock].values )
-#df['kf']           =  kf_ts
+df_fft = fourier_func.func_furier_new_series( df, stock, frequency_threshold = 0.1, plot = True )
 
-#plot_func.ploter(df, stock)
+#print(df_fft)
+
+plot_func.ploter(df_fft, stock, 'filtered__fft')
